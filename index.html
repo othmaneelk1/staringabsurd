@@ -4,32 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staring Absurd - Podcast</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: #121212;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            background: #1e1e1e;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Podcast List */
+        .podcast-list {
+            margin: 20px auto;
+            max-width: 500px;
+        }
+        .episode {
+            background: #222;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .episode:hover {
+            background: #333;
+        }
+        .episode img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .episode-info {
+            text-align: left;
+        }
+        .episode h3 {
+            font-size: 18px;
+        }
+        .episode p {
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        /* Floating Audio Player */
+        .player {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .player audio {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Staring Absurd</h1>
-        <p>Your home for absurd thoughts and deep conversations</p>
-    </header>
-    
+
+    <header>🎙️ Staring Absurd Podcast</header>
+
     <main>
-        <section class="podcast-list">
-            <div class="episode" data-audio="episode1.mp3">
-                <h2>Episode 1: The Absurd Reality</h2>
-                <button class="play-button">Play</button>
+        <div class="podcast-list">
+            <div class="episode" onclick="playEpisode('episode1.mp3', 'Episode 1: Introduction')">
+                <img src="https://via.placeholder.com/50" alt="Episode 1">
+                <div class="episode-info">
+                    <h3>Episode 1: Introduction</h3>
+                    <p>A brief intro to our podcast.</p>
+                </div>
             </div>
-            <div class="episode" data-audio="episode2.mp3">
-                <h2>Episode 2: A Strange Perspective</h2>
-                <button class="play-button">Play</button>
+
+            <div class="episode" onclick="playEpisode('episode2.mp3', 'Episode 2: Deep Thoughts')">
+                <img src="https://via.placeholder.com/50" alt="Episode 2">
+                <div class="episode-info">
+                    <h3>Episode 2: Deep Thoughts</h3>
+                    <p>Exploring absurd ideas.</p>
+                </div>
             </div>
-        </section>
-        
-        <div class="player">
-            <audio id="audio-player" controls></audio>
         </div>
     </main>
-    
-    <script src="script.js"></script>
+
+    <div class="player">
+        <audio id="audio-player" controls>
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        function playEpisode(src, title) {
+            let player = document.getElementById("audio-player");
+            player.src = src;
+            player.play();
+            document.querySelector("header").textContent = "🎧 Now Playing: " + title;
+        }
+    </script>
+
 </body>
 </html>
+
 
