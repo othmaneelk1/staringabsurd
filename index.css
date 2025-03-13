@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #111;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #222;
+    padding: 15px;
+}
+
+.podcast-list {
+    margin: 20px;
+}
+
+.episode {
+    background: #333;
+    padding: 15px;
+    margin: 10px auto;
+    width: 80%;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.episode:hover {
+    background: #444;
+}
+
+.player {
+    margin-top: 20px;
+}
